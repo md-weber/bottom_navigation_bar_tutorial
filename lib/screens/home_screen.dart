@@ -10,8 +10,19 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-              child: Image.asset("assets/undraw_reading_book.png"),
+            Builder(
+              builder: (context) => GestureDetector(
+                onTap: () {
+                  Scaffold.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("Hello World"),
+                    ),
+                  );
+                },
+                child: Container(
+                  child: Image.asset("assets/undraw_reading_book.png"),
+                ),
+              ),
             ),
           ],
         ),
