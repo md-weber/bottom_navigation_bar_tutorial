@@ -1,3 +1,4 @@
+import 'package:bottom_navigation_bar_tutorial/screens/child_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,8 +11,20 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-              child: Image.asset("assets/undraw_reading_book.png"),
+            Expanded(
+              child: ChildWidget(
+                number: AvailableNumber.First,
+              ),
+            ),
+            Expanded(
+              child: ChildWidget(
+                number: AvailableNumber.Second,
+              ),
+            ),
+            Expanded(
+              child: ChildWidget(
+                number: AvailableNumber.Third,
+              ),
             ),
           ],
         ),
