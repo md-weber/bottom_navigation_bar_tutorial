@@ -7,26 +7,30 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Expanded(
-              child: ChildWidget(
-                number: AvailableNumber.First,
+        child: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Expanded(
+                child: ChildWidget(
+                  number: AvailableNumber.First,
+                ),
               ),
-            ),
-            Expanded(
-              child: ChildWidget(
-                number: AvailableNumber.Second,
+              Divider(),
+              Expanded(
+                child: ChildWidget(
+                  number: AvailableNumber.Second,
+                ),
               ),
-            ),
-            Expanded(
-              child: ChildWidget(
-                number: AvailableNumber.Third,
+              Divider(),
+              Expanded(
+                child: ChildWidget(
+                  number: AvailableNumber.Third,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
