@@ -17,6 +17,7 @@ class ChildWidget extends StatelessWidget {
     }
 
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
           "$file screen",
