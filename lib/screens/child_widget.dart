@@ -16,15 +16,20 @@ class ChildWidget extends StatelessWidget {
       file = "third";
     }
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text(
-          "$file screen",
-          style: TextStyle(fontSize: 36.0),
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "$file screen",
+              style: TextStyle(fontSize: 36.0),
+            ),
+            Flexible(child: Image.asset("assets/undraw/$file.png"))
+          ],
         ),
-        Flexible(child: Image.asset("assets/undraw/$file.png"))
-      ],
+      ),
     );
   }
 }

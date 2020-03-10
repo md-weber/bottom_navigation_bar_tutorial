@@ -7,6 +7,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  PageController _pageController = PageController(
+    initialPage: 0,
+  );
   int currentIndex = 0;
 
   Widget childWidget = ChildWidget(
@@ -22,21 +25,11 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: currentIndex,
         onTap: (value) {
           currentIndex = value;
-
-          switch (value) {
-            case 0:
-              childWidget = ChildWidget(number: AvailableNumber.First);
-              break;
-            case 1:
-              childWidget = ChildWidget(number: AvailableNumber.Second);
-              break;
-            case 2:
-              childWidget = ChildWidget(number: AvailableNumber.Third);
-              break;
-            case 3:
-              childWidget = ChildWidget(number: AvailableNumber.Third);
-              break;
-          }
+          _pageController.animateToPage(
+            value,
+            duration: Duration(milliseconds: 200),
+            curve: Curves.linear,
+          );
 
           setState(() {});
         },
@@ -59,11 +52,19 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: SafeArea(
-          child: childWidget,
-        ),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (page) {
+          setState(() {
+            currentIndex = page;
+          });
+        },
+        children: <Widget>[
+          ChildWidget(number: AvailableNumber.First),
+          ChildWidget(number: AvailableNumber.Second),
+          ChildWidget(number: AvailableNumber.Third),
+          ChildWidget(number: AvailableNumber.Third)
+        ],
       ),
     );
   }
